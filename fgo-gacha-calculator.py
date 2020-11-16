@@ -130,6 +130,7 @@ class Window:
         self.rarity.set(5)
 
         self.MonteCarlo = tkinter.IntVar(self.window)
+        self.MonteCarlo.set(1)
         self.MonteCarloCycles = tkinter.IntVar(self.window)
 
 
@@ -142,7 +143,7 @@ class Window:
         self.rEntry = tkinter.Entry(self.window, textvariable = self.reliability)
 
         self.CheckMonteCarlo = tkinter.Checkbutton(self.window, text = "Monte-Carlo method", variable = self.MonteCarlo,command = self.enableMonteCarlo)
-        self.MonteCarloCyclesBox = tkinter.Spinbox(self.window, from_ = 10000,to = sys.maxsize, textvariable = self.MonteCarloCycles, state = tkinter.DISABLED)
+        self.MonteCarloCyclesBox = tkinter.Spinbox(self.window, from_ = 10000,to = sys.maxsize, textvariable = self.MonteCarloCycles)
 
         self.CalcButton = tkinter.Button(self.window, text = "Calculate", command=self.calc)
         self.RstButton = tkinter.Button(self.window, text = "Reset", command=self.reset)
