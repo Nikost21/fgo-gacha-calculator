@@ -51,7 +51,9 @@ def calculatePMonteCarlo(cycles, servant, rarity, probability, reliability):
                     value = random.randint(gachaProb[3][0],gachaProb[5][1] - 1)
             else:
                 if currentCard == garantSR:
-                    if random.randint(1,4) == 1:
+                    pserv = gachaProb[5][1] - gachaProb[4][0]
+                    pwhole = gachaProb[5][1] - gachaProb[4][0] + gachaProb[2][1] - gachaProb[1][0]
+                    if random.randint(1,pwhole) < pserv:
                         value = random.randint(gachaProb[4][0],gachaProb[5][1] - 1)
                     else:
                         value = random.randint(gachaProb[1][0],gachaProb[2][1] - 1)
