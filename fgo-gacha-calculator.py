@@ -80,7 +80,7 @@ def calculateServantP(rarity, p, reliability):
     elif (rarity == 3):
         if (p > 0.40):
             raise CalculateNError("Its imposible!")
-        oneRollProb = 1 - (((1 - p) ** 8) * ((0.44 - p) / 0.44) * 0.9 )#+ 0.1 * ((1 - p) ** 9))
+        oneRollProb = 1 - (((1 - p) ** 8) * ((0.44 - p) / 0.44) * 0.9 + 0.1 * ((1 - p) ** 9))
     else:
         raise CalculateNError("WTF????")
     return oneRollProb
