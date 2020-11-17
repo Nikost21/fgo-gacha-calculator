@@ -10,7 +10,7 @@ class CalculateNError(Exception):
         self.msg = msg
 
 
-gachaProb = [[0,  400000], # R essence
+gachaProb =   [[0,      400000], # R essence
                [400000, 520000], # SR essence
                [520000, 560000], # SSR essence
                [560000, 960000], # R servant
@@ -54,7 +54,7 @@ def calculatePMonteCarlo(cycles, servant, rarity, probability, reliability):
                     if random.randint(1,4) == 1:
                         value = random.randint(gachaProb[4][0],gachaProb[5][1] - 1)
                     else:
-                        value = random.randint(gachaProb[2][0],gachaProb[3][1] - 1)
+                        value = random.randint(gachaProb[1][0],gachaProb[2][1] - 1)
                 else:
                     value = random.randint(gachaProb[0][0],gachaProb[5][1] - 1)
 
@@ -70,15 +70,15 @@ def calculateServantP(rarity, p, reliability):
     if (rarity == 5):
         if (p > 0.01):
             raise CalculateNError("Its imposible!")
-        oneRollProb = 1 - (((1 - p) ** 8)* ((0.44 - p) / 0.44) * 0.9 * ((0.2 - p)/ 0.2) + ((1 - p) ** 9) * ((0.04 - p)/0.04) * 0.1)
+        oneRollProb = 1 - (((1 - p) ** 8) * ((0.44 - p) / 0.44) * 0.9 * ((0.2 - p)/ 0.2) + ((1 - p) ** 9) * ((0.04 - p)/0.04) * 0.1)
     elif (rarity == 4):
         if (p > 0.03):
             raise CalculateNError("Its imposible!")
-        oneRollProb = 1 - (((1 - p) ** 8)* ((0.44 - p) / 0.44) * 0.9 * ((0.2 - p)/ 0.2) + ((1 - p) ** 9) * ((0.04 - p)/0.04) * 0.1)
+        oneRollProb = 1 - (((1 - p) ** 8) * ((0.44 - p) / 0.44) * 0.9 * ((0.2 - p)/ 0.2) + ((1 - p) ** 9) * ((0.04 - p)/0.04) * 0.1)
     elif (rarity == 3):
         if (p > 0.40):
             raise CalculateNError("Its imposible!")
-        oneRollProb = 1 - ( ((1 - p) ** 8)* ((0.44 - p) / 0.44) * 0.9 )+ 0.1 * ((1 - p) ** 9)
+        oneRollProb = 1 - (((1 - p) ** 8) * ((0.44 - p) / 0.44) * 0.9 )#+ 0.1 * ((1 - p) ** 9))
     else:
         raise CalculateNError("WTF????")
     return oneRollProb
@@ -95,7 +95,7 @@ def calculateEssenceP(rarity,p,reliability):
     elif (rarity == 3):
         if (p > 0.40):
             raise CalculateNError("Its imposible!")
-        oneRollProb = 1 - ( ((1 - p) ** 8))
+        oneRollProb = 1 - (((1 - p) ** 8))
     else:
         raise CalculateNError("WTF????")
     return oneRollProb
